@@ -15,11 +15,11 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/bybit-exchange/bybit.go.api/models"
-
 	"github.com/bitly/go-simplejson"
-	"github.com/bybit-exchange/bybit.go.api/handlers"
 	jsoniter "github.com/json-iterator/go"
+
+	"github.com/photon-storage/bybit.go.api/handlers"
+	"github.com/photon-storage/bybit.go.api/models"
 )
 
 var json = jsoniter.ConfigCompatibleWithStandardLibrary

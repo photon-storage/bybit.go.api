@@ -3,8 +3,9 @@ package bybit_connector
 import (
 	"context"
 	"errors"
-	"github.com/bybit-exchange/bybit.go.api/handlers"
 	"net/http"
+
+	"github.com/bybit-exchange/bybit.go.api/handlers"
 )
 
 func (s *BybitClientRequest) GetSpotMarginData(ctx context.Context, opts ...RequestOption) (res *ServerResponse, err error) {
@@ -20,7 +21,7 @@ func (s *BybitClientRequest) GetSpotMarginData(ctx context.Context, opts ...Requ
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: endpoint,
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)
@@ -33,7 +34,7 @@ func (s *BybitClientRequest) GetTieredCollateralData(ctx context.Context, opts .
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/v5/spot-margin-trade/collateral",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)
@@ -53,7 +54,7 @@ func (s *BybitClientRequest) GetSpotMarginInterests(ctx context.Context, opts ..
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: endpoint,
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)
@@ -69,7 +70,7 @@ func (s *BybitClientRequest) SetSpotMarginLeverage(ctx context.Context, opts ...
 	r := &request{
 		method:   http.MethodPost,
 		endpoint: "/v5/spot-margin-trade/set-leverage",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	r.setParams(s.params)
 	data, err := s.c.callAPI(ctx, r, opts...)
@@ -94,7 +95,7 @@ func (s *BybitClientRequest) GetSpotMarginState(ctx context.Context, opts ...Req
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/v5/spot-margin-trade/state",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	r.setParams(s.params)
 	data, err := s.c.callAPI(ctx, r, opts...)
@@ -122,7 +123,7 @@ func (s *BybitClientRequest) ToggleSpotMarginTrade(ctx context.Context, opts ...
 	r := &request{
 		method:   http.MethodPost,
 		endpoint: endpoint,
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	r.setParams(s.params)
 	data, err := s.c.callAPI(ctx, r, opts...)
@@ -148,7 +149,7 @@ func (s *BybitClientRequest) GetSpotMarginCoin(ctx context.Context, opts ...Requ
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/v5/spot-cross-margin-trade/pledge-token",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)
@@ -165,7 +166,7 @@ func (s *BybitClientRequest) GetSpotMarginBorrowCoin(ctx context.Context, opts .
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/v5/spot-cross-margin-trade/borrow-token",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)
@@ -182,7 +183,7 @@ func (s *BybitClientRequest) GetSpotMarginLoanAccountInfo(ctx context.Context, o
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/v5/spot-cross-margin-trade/account",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)
@@ -199,7 +200,7 @@ func (s *BybitClientRequest) GetSpotMarginBorrowOrders(ctx context.Context, opts
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/v5/spot-cross-margin-trade/orders",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)
@@ -216,7 +217,7 @@ func (s *BybitClientRequest) GetSpotMarginRepaymentOrders(ctx context.Context, o
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/v5/spot-cross-margin-trade/repay-history",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)
@@ -233,7 +234,7 @@ func (s *BybitClientRequest) BorrowSpotMarginLoan(ctx context.Context, opts ...R
 	r := &request{
 		method:   http.MethodPost,
 		endpoint: "/v5/spot-cross-margin-trade/loan",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)
@@ -250,7 +251,7 @@ func (s *BybitClientRequest) RepaySpotMarginLoan(ctx context.Context, opts ...Re
 	r := &request{
 		method:   http.MethodPost,
 		endpoint: "/v5/spot-cross-margin-trade/repay",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)

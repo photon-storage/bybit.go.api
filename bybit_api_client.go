@@ -7,7 +7,6 @@ import (
 	"crypto/sha256"
 	"encoding/hex"
 	"fmt"
-	"github.com/bybit-exchange/bybit.go.api/models"
 	"io"
 	"log"
 	"net/http"
@@ -15,6 +14,8 @@ import (
 	"os"
 	"strconv"
 	"time"
+
+	"github.com/bybit-exchange/bybit.go.api/models"
 
 	"github.com/bitly/go-simplejson"
 	"github.com/bybit-exchange/bybit.go.api/handlers"
@@ -187,7 +188,7 @@ func (c *Client) parseRequest(r *request, opts ...RequestOption) (err error) {
 	}
 	header.Set("User-Agent", fmt.Sprintf("%s/%s", Name, Version))
 
-	if r.secType == secTypeSigned {
+	if r.secType == SecTypeSigned {
 		timeStamp := GetCurrentTime()
 		header.Set(signTypeKey, "2")
 		header.Set(apiRequestKey, c.APIKey)

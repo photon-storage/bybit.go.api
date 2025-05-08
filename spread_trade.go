@@ -2,8 +2,9 @@ package bybit_connector
 
 import (
 	"context"
-	"github.com/bybit-exchange/bybit.go.api/handlers"
 	"net/http"
+
+	"github.com/bybit-exchange/bybit.go.api/handlers"
 )
 
 func (s *BybitClientRequest) PlaceSpreadTradeOrder(ctx context.Context, opts ...RequestOption) (res *ServerResponse, err error) {
@@ -13,7 +14,7 @@ func (s *BybitClientRequest) PlaceSpreadTradeOrder(ctx context.Context, opts ...
 	r := &request{
 		method:   http.MethodPost,
 		endpoint: "/v5/spread/order/create",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)
@@ -26,7 +27,7 @@ func (s *BybitClientRequest) AmendSpreadTradeOrder(ctx context.Context, opts ...
 	r := &request{
 		method:   http.MethodPost,
 		endpoint: "/v5/spread/order/amend",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)
@@ -39,7 +40,7 @@ func (s *BybitClientRequest) CancelSpreadTradeOrder(ctx context.Context, opts ..
 	r := &request{
 		method:   http.MethodPost,
 		endpoint: "/v5/spread/order/cancel",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)
@@ -52,7 +53,7 @@ func (s *BybitClientRequest) CancelAllSpreadTradeOrder(ctx context.Context, opts
 	r := &request{
 		method:   http.MethodPost,
 		endpoint: "/v5/spread/order/cancel-all",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)
@@ -65,7 +66,7 @@ func (s *BybitClientRequest) GetSpreadTradeOrderHistory(ctx context.Context, opt
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/v5/spread/order/history",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)
@@ -78,7 +79,7 @@ func (s *BybitClientRequest) GetSpreadTradeHistory(ctx context.Context, opts ...
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/v5/spread/execution/list",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)
@@ -91,7 +92,7 @@ func (s *BybitClientRequest) GetSpreadTradeInstrumentsInfo(ctx context.Context, 
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/v5/spread/instrument",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)
@@ -104,7 +105,7 @@ func (s *BybitClientRequest) GetSpreadTradeOrderBook(ctx context.Context, opts .
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/v5/spread/orderbook",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)
@@ -117,7 +118,7 @@ func (s *BybitClientRequest) GetSpreadTradeTickers(ctx context.Context, opts ...
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/v5/spread/tickers",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)
@@ -130,7 +131,7 @@ func (s *BybitClientRequest) GetSpreadRecentTrade(ctx context.Context, opts ...R
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/v5/spread/recent-trade",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)

@@ -2,8 +2,9 @@ package bybit_connector
 
 import (
 	"context"
-	"github.com/bybit-exchange/bybit.go.api/handlers"
 	"net/http"
+
+	"github.com/bybit-exchange/bybit.go.api/handlers"
 )
 
 func (s *BybitClientRequest) GetEarnProductInfo(ctx context.Context, opts ...RequestOption) (res *ServerResponse, err error) {
@@ -13,7 +14,7 @@ func (s *BybitClientRequest) GetEarnProductInfo(ctx context.Context, opts ...Req
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/v5/earn/product",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)
@@ -23,7 +24,7 @@ func (s *BybitClientRequest) RedeemEarnOrder(ctx context.Context, opts ...Reques
 	r := &request{
 		method:   http.MethodPost,
 		endpoint: "/v5/earn/place-order",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)
@@ -33,7 +34,7 @@ func (s *BybitClientRequest) GetEarnRedeemOrder(ctx context.Context, opts ...Req
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/v5/earn/order",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)
@@ -43,7 +44,7 @@ func (s *BybitClientRequest) GetEarnRedeemPosition(ctx context.Context, opts ...
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/v5/earn/position",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)

@@ -174,7 +174,7 @@ func (order *Order) Do(ctx context.Context, opts ...RequestOption) (res *ServerR
 	r := &request{
 		method:   http.MethodPost,
 		endpoint: "/v5/order/create",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	m := params{
 		"category":  order.category,

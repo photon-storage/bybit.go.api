@@ -2,8 +2,9 @@ package bybit_connector
 
 import (
 	"context"
-	"github.com/bybit-exchange/bybit.go.api/handlers"
 	"net/http"
+
+	"github.com/bybit-exchange/bybit.go.api/handlers"
 )
 
 func (s *BybitClientRequest) GetLeverageTokenInfo(ctx context.Context, opts ...RequestOption) (res *ServerResponse, err error) {
@@ -13,7 +14,7 @@ func (s *BybitClientRequest) GetLeverageTokenInfo(ctx context.Context, opts ...R
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/v5/spot-lever-token/info",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)
@@ -26,7 +27,7 @@ func (s *BybitClientRequest) GetLeverageTokenOrders(ctx context.Context, opts ..
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/v5/spot-lever-token/order-record",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)
@@ -39,7 +40,7 @@ func (s *BybitClientRequest) GetLeverageTokenMarket(ctx context.Context, opts ..
 	r := &request{
 		method:   http.MethodGet,
 		endpoint: "/v5/spot-lever-token/reference",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)
@@ -52,7 +53,7 @@ func (s *BybitClientRequest) PurchaseLeverageToken(ctx context.Context, opts ...
 	r := &request{
 		method:   http.MethodPost,
 		endpoint: "/v5/spot-lever-token/purchase",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)
@@ -65,7 +66,7 @@ func (s *BybitClientRequest) RedeemLeverageToken(ctx context.Context, opts ...Re
 	r := &request{
 		method:   http.MethodPost,
 		endpoint: "/v5/spot-lever-token/redeem",
-		secType:  secTypeSigned,
+		secType:  SecTypeSigned,
 	}
 	data, err := SendRequest(ctx, opts, r, s, err)
 	return GetServerResponse(err, data)

@@ -11,8 +11,8 @@ import (
 type secType int
 
 const (
-	secTypeNone   secType = iota
-	secTypeSigned         // private request
+	SecTypeNone   secType = iota
+	SecTypeSigned         // private request
 )
 
 type params map[string]interface{}
@@ -28,6 +28,18 @@ type request struct {
 	params     []byte
 	fullURL    string
 	body       io.Reader
+}
+
+func NewRequest(
+	method string,
+	endpoint string,
+	secType secType,
+) *request {
+	return &request{
+		method:   method,
+		endpoint: endpoint,
+		secType:  secType,
+	}
 }
 
 // addParam add param with key/value to query string
